@@ -1,0 +1,40 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6 offset-2  search-container pt-2 d-none d-md-block">
+       
+         <%= form_tag(root_path, :method => "get", id: "search-form", class:"input-group") do %>
+          <%= text_field_tag :artist_name, "", placeholder: "Où allez-vous ? ", class:"form-control search-input", id:"search-bar", required: true%>
+          <span class="input-group-btn">
+          <%= button_tag(type: "submit", class: "btn search-btn btn-sm" ) do %>
+           <i class="material-icons">
+            search
+           </i>
+          <% end %>
+          </span>
+          <% end %>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <% if @artists.blank?%>
+            <p>Désolé aucun artiste ne correspond à votre recherche</p>
+            <% else %>
+                <ul>
+                <% @artists.each do |artist| %>
+                <% @image = artist.images.third%>
+                <% if !@image.nil? %>
+                    <%#= @image["url"] %>
+                    <li class="list-item"><%= image_tag(@image["url"]) %> <%= artist.name %> | <%= link_to "Show", root_path %></li>
+                <% else %>
+                    <li class="list-item"><%= artist.name %> | <%= link_to "Show", root_path %></li>
+                <% end %>
+                
+                
+                <% end %>
+            </ul>
+            <% end %>
+        </div>
+    </div>
+</div>
+
+
