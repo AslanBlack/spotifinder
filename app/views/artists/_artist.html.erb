@@ -1,0 +1,16 @@
+<div class="col-xs-12 text-white">
+    <div class="row">
+        <div class="col-xs-3">
+           <%= image_tag(@image["url"]) %> 
+        </div>
+        <div class="col-xs-3">
+           <%= artist.name %>  
+        </div>
+        <div class="col-xs-3">
+            <%= artist.genres[0, artist.genres.length] %> 
+        </div>
+        <div class="col-xs-3">
+            <%= link_to "Show", artist_path(artist.id) %>
+        </div>
+    </div>
+</div>

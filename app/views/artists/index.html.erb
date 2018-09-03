@@ -1,31 +1,32 @@
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-md-6 offset-2  search-container pt-2 d-none d-md-block">
-       
-         <%= form_tag(root_path, :method => "get", id: "search-form", class:"input-group") do %>
-          <%= text_field_tag :artist_name, "", placeholder: "Un artiste en tête? ", class:"form-control search-input", id:"search-bar", required: true%>
-          <span class="input-group-btn">
-          <%= button_tag(type: "submit", class: "btn search-btn btn-sm" ) do %>
-           <i class="material-icons">
-            search
-           </i>
-          <% end %>
-          </span>
-          <% end %>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col">
-            <% if @artists.blank?%>
+<div class="container-fluid home-page pt-5">
+    
+    <div class="row d-flex">
+        <div class="col search-results-container align-self-center">
+            <% if @artists.nil?%>
             <p>Désolé aucun artiste ne correspond à votre recherche</p>
             <% else %>
-                <ul class="list-group">
+                <ul class="list-group custom-list-group">
                 <% @artists.each do |artist| %>
                 <% @image = artist.images.third%>
                 <% if !@image.nil? %>
-                    <li class="list-group-item"><%= image_tag(@image["url"]) %> <%= artist.name %> | <%= link_to "Show", artist_path(artist.id) %></li>
-                <% else %>
-                    <li class="list-group-item"><%= artist.name %> | <%= link_to "Show", artist_path(artist.id) %></li>
+                    <li class="list-group-item custom-list-item">
+                        <div class="col-xs-12 text-white ">
+                            <div class="row">
+                                <div class="col d-flex ">
+                                    <%= image_tag(@image["url"]) %> 
+                                </div>
+                                <div class="col d-flex align-items-center">
+                                    <%= artist.name %>  
+                                </div>
+                                
+                                <div class="col d-flex align-items-center">
+                                    <%= link_to "Show", artist_path(artist.id) %>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                <%# else %>
+                    <!--li class="list-group-item custom-list-item"><%#= artist.name %>  <#%= link_to "Show", artist_path(artist.id) %></li-->
                 <% end %>
                 
                 

@@ -5,6 +5,7 @@ class ArtistsController < ApplicationController
         if !params[:artist_name].blank?
             @artists = RSpotify::Artist.search(params[:artist_name])
         end
+        
     end
     
     def show

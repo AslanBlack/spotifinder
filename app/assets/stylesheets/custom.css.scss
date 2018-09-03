@@ -1,1 +1,52 @@
 @import "bootstrap";
+
+body, html{
+    height: 100%;
+}
+
+.home-page{
+    
+    background: asset_url('apple-earphone') no-repeat fixed center;
+    background-size: cover;
+}
+
+.custom-list-group{
+    background-color: unset;
+    
+}
+
+.custom-list-item{
+    background-color: rgba(42, 25, 35, 0.8); 
+}
+
+.search-results-container{
+    height: 90vh;
+    overflow: auto;
+}
+
+.debug{
+    border: 1px solid blue;
+}
+
+.search-input{
+    color: white;
+    background-color: transparent!important;
+    border: none;
+    &:focus{
+        box-shadow: unset;
+    }
+     &:invalid{
+       box-shadow: unset; 
+    }
+}
+
+.search-bar{
+    border: 1px solid white;
+    border-radius: 20px;
+}
+
+.search-btn{
+    background-color: transparent;
+    color: white;
+     
+}

@@ -1,4 +1,4 @@
-class Artist
+class Artist < ApplicationRecord
     
     
   def initialize(name)
