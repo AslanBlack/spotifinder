@@ -1,0 +1,15 @@
+<div class="row mb-5">
+        <div class="col-md-8 offset-md-2 search-container">
+       
+         <%= form_tag(artists_path, :method => "get", id: "search-form", class:"input-group search-bar p-1") do %>
+          <%= text_field_tag :artist_name, "", placeholder: "Un artiste en tête? ", class:"text-white form-control search-input", id:"search-bar", required: true%>
+          <span class="input-group-btn">
+          <%= button_tag(type: "submit", class: "btn search-btn btn-sm" ) do %>
+           <i class="material-icons">
+            search
+           </i>
+          <% end %>
+          </span>
+          <% end %>
+        </div>
+    </div> 

@@ -1,26 +1,26 @@
-<div class="container-fluid home-page pt-5">
-    
+<div class="container-fluid  home-page pt-1">
+    <%= render 'layouts/search_bar' %>
     <div class="row d-flex">
         <div class="col search-results-container align-self-center">
-            <% if @artists.nil?%>
-            <p>Désolé aucun artiste ne correspond à votre recherche</p>
+            <% if @artists.nil? %>
+            <p class="text-white text-center display-1">Désolé aucun artiste ne correspond à votre recherche</p>
             <% else %>
-                <ul class="list-group custom-list-group">
+                <ul class="list-group d-flex custom-list-group">
                 <% @artists.each do |artist| %>
-                <% @image = artist.images.third%>
+                <% @image = artist.images.first%>
                 <% if !@image.nil? %>
-                    <li class="list-group-item custom-list-item">
-                        <div class="col-xs-12 text-white ">
+                    <li class="list-group-item   custom-list-item">
+                        <div class="col-md-12 text-white ">
                             <div class="row">
-                                <div class="col d-flex ">
-                                    <%= image_tag(@image["url"]) %> 
+                                <div class="col-md-4 d-flex align-self-center justify-content-center">
+                                    <%= image_tag((@image["url"]), class:"thumbnail rounded-image") %> 
                                 </div>
-                                <div class="col d-flex align-items-center">
+                                <div class="col-md-4 d-flex align-self-center align-content-center justify-content-center">
                                     <%= artist.name %>  
                                 </div>
                                 
-                                <div class="col d-flex align-items-center">
-                                    <%= link_to "Show", artist_path(artist.id) %>
+                                <div class="col-md-4 d-flex align-self-center justify-content-center">
+                                    <%= link_to "Voir", artist_path(artist.id), class:"btn btn-danger " %>
                                 </div>
                             </div>
                         </div>

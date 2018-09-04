@@ -1,23 +1,10 @@
-<div class="container-fluid h-100 home-page">
-    <div class="row h-50 ">
-        <div class="col-md-6 offset-md-3 pt-5 align-self-end text-center text-white">
-            <h1>Vos artistes favoris à portée de clic</h1>
+<div class="container-fluid home-page pt-5">
+    <div class="row h-50 d-flex pt-5">
+        <div class="col-md-12 py-5 mt-5  align-self-end text-center tagline-container text-white">
+            <h1 class="mb-4">Vos artistes favoris à portée de clic</h1>
             <p>Entez le nom d'un artiste et découvrez sa discographie</p>
+            <%= render 'layouts/search_bar' %>
         </div>
     </div>
-    <div class="row ">
-        <div class="col-md-8 offset-md-2 mb-2 search-container">
-       
-         <%= form_tag(artists_path, :method => "get", id: "search-form", class:"input-group search-bar p-1") do %>
-          <%= text_field_tag :artist_name, "", placeholder: "Un artiste en tête? ", class:"text-white form-control search-input", id:"search-bar", required: true%>
-          <span class="input-group-btn">
-          <%= button_tag(type: "submit", class: "btn search-btn btn-sm" ) do %>
-           <i class="material-icons">
-            search
-           </i>
-          <% end %>
-          </span>
-          <% end %>
-        </div>
-    </div> 
+    
 </div>

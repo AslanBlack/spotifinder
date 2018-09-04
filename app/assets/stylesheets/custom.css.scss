@@ -1,11 +1,13 @@
 @import "bootstrap";
 
+
+
 body, html{
     height: 100%;
 }
 
 .home-page{
-    
+    min-height: 100vh;
     background: asset_url('apple-earphone') no-repeat fixed center;
     background-size: cover;
 }
@@ -20,20 +22,41 @@ body, html{
 }
 
 .search-results-container{
-    height: 90vh;
+    height: 70vh;
     overflow: auto;
+    
 }
 
 .debug{
     border: 1px solid blue;
 }
 
+
+
+.rounded-image{
+    border-radius: 50%;
+}
+
+.thumbnail{
+   height: 100px;
+   width: 100px;
+   object-fit: cover; 
+}
+
+.thumbnail-lg{
+   height: 100%;
+   width: 100%;
+   object-fit: cover;
+}
+
 .search-input{
     color: white;
     background-color: transparent!important;
     border: none;
+    
     &:focus{
         box-shadow: unset;
+        
     }
      &:invalid{
        box-shadow: unset; 
@@ -45,8 +68,34 @@ body, html{
     border-radius: 20px;
 }
 
+
 .search-btn{
     background-color: transparent;
     color: white;
-     
 }
+
+.artist-page{
+    background-image: linear-gradient(to bottom, #2a1923, #2e1b26, #321d29, #371e2d, #3b2030);
+    min-height: 100vh;
+}
+
+.overlay {
+  box-sizing: border-box;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(10, 6, 8, 0.81);
+  overflow: hidden;
+  width: 0;
+  height: 100%;
+  transition: .5s ease-out;
+}
+
+.album-container:hover .overlay {
+  width: 100%;
+}
+
+
+
+

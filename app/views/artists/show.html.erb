@@ -1,6 +1,25 @@
-<h1><%= @artist.name %></h1>
-<ul class="group-list">
-<% @albums.each do |album| %>
-    <li class="list-group-item custom-list"><%= album.name %></li>
-<% end %>    
-</ul>
+<div class="container-fluid pt-1 text-center artist-page text-white">
+    <div class="row">
+        <div class="col">
+            <h1><%= @artist.name %></h1>
+        </div>
+    </div>
+    <div class="row d-flex mt-5 justify-content-center">
+        <% @albums.each do |album| %>
+            <% @image = album.images.first %>
+            <% if !@image.nil? %>
+        <div class="col-md-2 p-0  mx-5 mb-5  album-container d-flex position-relative ">
+            <%= image_tag((@image["url"]), class:"album-image thumbnail-lg") %> 
+            <div class="overlay ">
+                <p class="album-name  mt-5"><%= album.name %></p>
+                <p class="album-date "><%= album.release_date  %></p>
+            </div>
+        </div>
+       
+        <%end%>
+<% end %>   
+    </div>
+</div>
+
+
+ 
