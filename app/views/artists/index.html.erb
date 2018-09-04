@@ -5,6 +5,9 @@
             <% if @artists.nil? %>
             <p class="text-white text-center display-1">Désolé aucun artiste ne correspond à votre recherche</p>
             <% else %>
+                <% if @artists.length < 1 %>
+                 <p class="text-white text-center display-1">Désolé aucun artiste ne correspond à votre recherche</p>
+                <% end %>
                 <ul class="list-group d-flex custom-list-group">
                 <% @artists.each do |artist| %>
                 <% @image = artist.images.first%>
